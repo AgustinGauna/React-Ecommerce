@@ -1,10 +1,12 @@
-import Navbar from "./NavBar";
+import NavBar from "./NavBar";
+import ItemListContainer from "./ItemListContainer"
 
 function App() {
   return (
     <>
-      <Navbar />
-      <footer>Soy un footer</footer>
+      <NavBar />
+      <ItemListContainer nombre="Sergio"/>
+    
     </>
   );
 }

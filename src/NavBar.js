@@ -1,24 +1,25 @@
 import './Style.css' 
+import CartWidget from "./CartWidget";
 
 function NavBar() {
     return (
-      <header>
-          <div class="header">
-            <div class="inner_header">
-                <div class="logo_container">
-                    <h1>Coffee <span>Store</span></h1>
+      
+          <div className="header">
+            <div className="inner_header">
+                <div className="logo_container">
+                    <h1>Coffee <span>Store <CartWidget /></span></h1>
+                    
                 </div>
-
-                <ul class="navigation">
-                    <a href="#"><li>Home</li></a>
-                    <a href="#"><li>Nosotros</li></a>
-                    <a href="#"><li>Contacto</li></a>
+                <nav className="navigation">
+                <ul className="navigation">
+                    <a href="/#"><li>Home</li></a>
+                    <a href="/#"><li>Nosotros</li></a>
+                    <a href="/#"><li>Contacto</li></a>
                 </ul>
+                </nav>
             </div>
           </div>
    
-
-      </header>
     );
   }
 
