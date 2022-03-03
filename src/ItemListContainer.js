@@ -1,9 +1,11 @@
 import './Style.css' 
+import ItemCount from './ItemCount'
 const ItemListContainer = (greeting) => {
     return ( 
         <main className="container">
-            <h2 className="greetings">Bienvenido {greeting.nombre}</h2>
+            <h2 className="greetings">Bienvenido {greeting.nombre}</h2>       
         </main>
+        
     )
 }
 
