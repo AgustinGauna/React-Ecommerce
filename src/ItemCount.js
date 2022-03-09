@@ -3,22 +3,25 @@ import {useState} from 'react';
 const ItemCount = (cuenta) => { 
  
     const miOnAdd = () => {
-        if(contador >= 1 && contador <= cuenta.max){
             console.log("Compra exitosa")
-        } else {
-            console.log("Cantidad incorrecta")
-        }
     }
  
     const [contador, setContador] = useState(cuenta.initial)
 
+    
 
-    const sumar = () => {
-     setContador(contador + 1)
-     }
+        const sumar = () => {
+            if(contador >=cuenta.initial && contador <cuenta.max){
+            setContador(contador + 1)
+        }
+    }
 
-    const restar = () => {
-        setContador(contador - 1)
+    
+
+        const restar = () => {
+            if(contador >cuenta.initial && contador <=cuenta.max){
+            setContador(contador - 1)
+        }
         }
 
     

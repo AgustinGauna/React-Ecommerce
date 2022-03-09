@@ -1,73 +1,94 @@
 * {
     padding: 0;
     margin: 0;
-    list-style: none;
+    box-sizing: border-box;
+
+}
+
+li,
+a {
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
     text-decoration: none;
+
 }
 
-.header {
-    width: 100%;
-    height: 80px;
-    display: block;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
     background-color: #cab2b2;
-
-
 }
 
-.inner_header {
-    width: 1000px;
-    height: 100%;
-    display: block;
-    margin: 0 auto;
-
+.logo {
+    cursor: pointer;
 }
 
-.logo_container {
-    height: 100%;
-    display: table;
-    float: left;
+.nav__links {
+    list-style: none;
 }
 
-.logo_container h1 {
-    color: white;
-    height: 100%;
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 32px;
-    font-weight: 200;
-}
-
-.logo_container h1 span {
-    font-weight: 800;
-}
-
-.navigation {
-    float: right;
-    height: 100%;
-}
-
-.navigation a {
-    height: 100%;
-    display: table;
-    float: left;
+.nav__links li {
+    display: inline-block;
     padding: 0px 20px;
 }
 
-.navigation a:last-child {
-    padding-right: 0;
+.nav__links li a {
+    transition: all 0.3s ease 0s;
 }
 
-.navigation a li {
-    display: table-cell;
-    vertical-align: middle;
-    height: 100%;
-    color: white;
-    font-size: 16px;
+.nav__links li a:hover {
+    color: #0088a9;
 }
+
+
+
+
+
+
+
 
 .greetings {
     background-color: rgb(133, 132, 131);
     border-radius: 10%;
     display: flex;
     justify-content: center;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-bottom: 100px;
+    border-radius: 3px;
+}
+
+.image {
+    margin-right: 20px;
+    margin-left: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.add-cart {
+    position: absolute;
+    width: 100%;
+    background-color: darkgray;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
+    text-align: center;
+}
+
+.image:hover .cart1,
+.image:hover .cart2,
+.image:hover .cart3,
+.image:hover .cart4 {
+    bottom: 50px;
+    opacity: 1;
+    padding: 10px;
+    text-decoration: none;
 }
