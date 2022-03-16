@@ -2,7 +2,7 @@ import Item from "./Item"
 
 const ItemList = ({productos}) => {
     return (
-        <section className="product-list">
+        <section className="container2">
             {productos.map((producto) => {
                 return <Item key={producto.id} producto={producto}/>
             })}

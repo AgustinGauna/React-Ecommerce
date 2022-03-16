@@ -1,21 +1,21 @@
 import NavBar from "./NavBar";
-import Item from "./Item"
 import ItemCount from './ItemCount'
-import ItemListContainer from "./ItemListContainer";
+import Main from "./Main";
 import ItemDetailContainer from "./ItemDetailContainer";
-
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
 
-  const miOnAdd = () => {}
-
+  
   return (
-    <>
+    <BrowserRouter>
       <NavBar />
-      <ItemListContainer/>
-      <ItemDetailContainer/>
-      <ItemCount onAdd={miOnAdd} initial={1} max={4}/>
-    </>
+      <Main />
+      
+      <ToastContainer/>
+    </BrowserRouter>
   );
 }
 

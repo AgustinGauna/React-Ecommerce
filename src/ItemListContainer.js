@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'  
+import { useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import ItemList from './ItemList'
 
 let productosIniciales = [
@@ -25,11 +27,13 @@ let productosIniciales = [
 const ItemListContainer = () => {
     const [loading, setLoading] = useState(true)
     const [productos, setProductos] = useState([]);
+    const {id} = useParams()
 
     useEffect(()=>{
 
         const promesa = new Promise((res,rej)=>{
             setTimeout(()=>{
+                console.log(id)
                 res(productosIniciales)
             },2000)
         })
@@ -41,14 +45,14 @@ const ItemListContainer = () => {
             setProductos(productosIniciales)
         })
         .catch((errorDeLaApi)=>{
-            console.log(errorDeLaApi)
+            toast.error("Error al cargar los productos")
             
         })
         .finally(()=>{
             setLoading(false)
         })
         
-    })
+    },[id])
 
     return (
         <>

@@ -60,15 +60,16 @@ header {
 .container2 {
     display: flex;
     justify-content: center;
+
     flex-wrap: wrap;
     margin-top: 50px;
     padding-bottom: 100px;
-    border-radius: 3px;
 }
 
 .image {
     margin-right: 20px;
     margin-left: 20px;
+    align-items: center;
     position: relative;
     overflow: hidden;
 }
@@ -91,4 +92,81 @@ header {
     opacity: 1;
     padding: 10px;
     text-decoration: none;
+}
+
+.todo {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container3 {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-areas: "cover content";
+    box-shadow: -2px 0px 33px 0px rgba(0, 0, 0, 0.75);
+}
+
+.cover {
+    display: flex;
+
+}
+
+
+.content {
+    grid-area: content;
+    background: #fefefe;
+    display: flex;
+
+    flex-direction: column;
+    align-content: center;
+
+
+
+}
+
+.nave {
+    margin: 10px 20px;
+    height: 40px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    color: gray;
+}
+
+.content-body {
+    display: flex;
+    flex-direction: row;
+}
+
+.black-label {
+    font-size: 13px;
+    color: gray;
+    width: 70%;
+}
+
+.title {
+    font-size: 64px;
+}
+
+.prix {
+    margin: 50px 0px;
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    border-left: 4px solid rgb(255, 177, 33);
+}
+
+.prix span {
+    padding-left: 10px;
+}
+
+.crt {
+    color: gray;
+    left: 2px;
+    border-bottom: 1px solid rgb(177, 177, 177);
 }
