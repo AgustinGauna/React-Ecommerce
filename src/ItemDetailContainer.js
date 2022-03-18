@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'  
+import ItemCount from './ItemCount';
 import ItemDetail from './ItemDetail';
 
 
@@ -31,7 +32,7 @@ const ItemDetailContainer = () => {
 
         promesa
         .then((respuestaDeLaApi)=>{
-            setDetalles(detallesProductos)
+            setDetalles(respuestaDeLaApi)
         })
         .catch((errorDeLaApi)=>{
             console.log(errorDeLaApi)

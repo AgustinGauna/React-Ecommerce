@@ -13,7 +13,6 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Main />
-      
       <ToastContainer/>
     </BrowserRouter>
   );

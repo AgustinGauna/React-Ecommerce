@@ -15,8 +15,9 @@ function NavBar() {
             <nav>
                 <ul className='nav__links'>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/categoria/cat2">Contacto</Link></li>
-                    <li><Link to="/categoria/cat3">Nosotros</Link></li>
+                    <li><Link to="/categoria/1">Dulces</Link></li>
+                    <li><Link to="/categoria/2">Negros</Link></li>
+                    <li><Link to="/categoria/3">Frutales</Link></li>
                     <li><Link to="/carrito">Carrito</Link></li>
                 </ul>
             </nav>
