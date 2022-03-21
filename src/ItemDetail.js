@@ -1,8 +1,24 @@
 import React from 'react'
 import CartWidget from './CartWidget'
 import ItemCount from './ItemCount'
+import { useState } from 'react' 
 
 const ItemDetail = (detalles) => {
+
+  const [renderizado, setRenderizado] = useState(true)
+
+
+  
+
+  const onAdd = (unidadSeleccionada) =>{
+    console.log(unidadSeleccionada)
+    setRenderizado(false)
+   
+  }
+
+  
+
+
   return (
     
 
@@ -20,7 +36,7 @@ const ItemDetail = (detalles) => {
                   <p>{detalles.descripcion}</p>
                   <div className="prix">
                   <span><b>${detalles.precio}</b></span>
-                  <span className="crt"> <ItemCount initial={1} max={4}/> </span>
+                  <span className="crt">  {renderizado ? <ItemCount initial={1} max={4} onAdd={onAdd}/> : "" } </span>
                 </div>
                 </div>
                 

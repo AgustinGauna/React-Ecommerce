@@ -59,6 +59,7 @@ const ItemDetailContainer = () => {
                     img={detalles.img}
                     
                   />
+                  
                 </div>
               
             
