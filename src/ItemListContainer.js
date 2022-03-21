@@ -36,7 +36,7 @@ const ItemListContainer = () => {
 
         const promesa = new Promise((res,rej)=>{
             setTimeout(()=>{
-                console.log(id)
+                
                 res(productosIniciales)
             },2000)
         })

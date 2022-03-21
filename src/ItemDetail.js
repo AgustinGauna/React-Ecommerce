@@ -2,6 +2,9 @@ import React from 'react'
 import CartWidget from './CartWidget'
 import ItemCount from './ItemCount'
 import { useState } from 'react' 
+import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom';
+import './Style.css' 
 
 const ItemDetail = (detalles) => {
 
@@ -13,7 +16,7 @@ const ItemDetail = (detalles) => {
   const onAdd = (unidadSeleccionada) =>{
     console.log(unidadSeleccionada)
     setRenderizado(false)
-   
+    toast.success("Compra realizada con exito")
   }
 
   
@@ -36,7 +39,7 @@ const ItemDetail = (detalles) => {
                   <p>{detalles.descripcion}</p>
                   <div className="prix">
                   <span><b>${detalles.precio}</b></span>
-                  <span className="crt">  {renderizado ? <ItemCount initial={1} max={4} onAdd={onAdd}/> : "" } </span>
+                  <span className="crt">  {renderizado ? <ItemCount initial={1} max={4} onAdd={onAdd}/> : <ul className='nav__links' style={{backgroundColor:"blue"}}><li><Link to="/carrito">Carrito</Link></li></ul>} </span>
                 </div>
                 </div>
                 
