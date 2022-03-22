@@ -1,35 +1,33 @@
 import {useState} from 'react';
 
-const ItemCount = ({initial, max, onAdd}) => { 
+const ItemCount = ({item, initial, max, addItem}) => { 
  
     
  
-    const [contador, setContador] = useState(initial)
+    const [qty, setQty] = useState(initial)
 
     
 
         const sumar = () => {
-            if(contador >=initial && contador <max){
-            setContador(contador + 1)
+            if(qty >=initial && qty <max){
+            setQty(qty + 1)
         }
     }
 
-        const confirmar = () => {
-            onAdd(contador);
-        }
+       
 
         const restar = () => {
-            if(contador >initial && contador <=max){
-            setContador(contador - 1)
+            if(qty >initial && qty <=max){
+            setQty(qty - 1)
         }
         }
 
     
     return (
         <div>
-            <p>Cantidad : {contador}</p>
+            <p>Cantidad : {qty}</p>
             <button className='btn2' onClick={restar}>-</button>
-            <button onClick={confirmar}>Comprar</button>
+            <button onClick={() => addItem({item, qty})}>Comprar</button>
             <button className='btn2' onClick={sumar}>+</button>
         </div>
     );

@@ -5,22 +5,15 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom';
 import './Style.css' 
+import {contexto } from "./CartContext"
+import { useContext } from 'react'
+import CartContext from './CartContext'
 
 const ItemDetail = (detalles) => {
 
-  const [renderizado, setRenderizado] = useState(true)
-
-
   
 
-  const onAdd = (unidadSeleccionada) =>{
-    console.log(unidadSeleccionada)
-    setRenderizado(false)
-    toast.success("Compra realizada con exito")
-  }
-
-  
-
+  const {addItem, item} = useContext(contexto)
 
   return (
     
@@ -39,7 +32,7 @@ const ItemDetail = (detalles) => {
                   <p>{detalles.descripcion}</p>
                   <div className="prix">
                   <span><b>${detalles.precio}</b></span>
-                  <span className="crt">  {renderizado ? <ItemCount initial={1} max={4} onAdd={onAdd}/> : <ul className='nav__links' style={{backgroundColor:"blue"}}><li><Link to="/carrito">Carrito</Link></li></ul>} </span>
+                  <span className="crt">  <ItemCount item={item} initial={1} max={4} addItem={addItem}/>  <ul className='nav__links' style={{backgroundColor:"blue"}}><li><Link to="/carrito">Carrito</Link></li></ul> </span>
                 </div>
                 </div>
                 
