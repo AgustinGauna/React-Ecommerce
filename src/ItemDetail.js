@@ -1,26 +1,28 @@
 import React from 'react'
 import CartWidget from './CartWidget'
 import ItemCount from './ItemCount'
-import { useState } from 'react' 
-import { toast } from 'react-toastify'
-import { Link } from 'react-router-dom';
 import './Style.css' 
-import {contexto } from "./CartContext"
-import { useContext } from 'react'
-import CartContext from './CartContext'
+import {Contexto} from './CartContext'
 
-const ItemDetail = (detalles) => {
+const ItemDetail = ({Item}) => {
 
-  
+  const {img, name, id, precio, descripcion} = Item
 
-  const {addItem, item} = useContext(contexto)
+
+  const {AddItem} = Contexto()
+
+  const OnAdd =(Quantity)=>{
+    AddItem({Item: Item, Quantity: Quantity, nombre: name, id:id})
+}
 
   return (
+
+    
     
 
         <main className='todo'>
           <div className='container3'>
-            <div className="cover"><img src={detalles.img} /></div>
+            <div className="cover"><img src={img} /></div>
             <div className="content">
               <div className="nave">
                 <span className="logo">Coffe Store <CartWidget/> </span>
@@ -28,11 +30,11 @@ const ItemDetail = (detalles) => {
               </div>
               <div className="content-body">
                 <div className="black-label">
-                  <span className="title"><b>{detalles.name}</b></span>
-                  <p>{detalles.descripcion}</p>
+                  <span className="title"><b>{name}</b></span>
+                  <p>{descripcion}</p>
                   <div className="prix">
-                  <span><b>${detalles.precio}</b></span>
-                  <span className="crt">  <ItemCount item={item} initial={1} max={4} addItem={addItem}/>  <ul className='nav__links' style={{backgroundColor:"blue"}}><li><Link to="/carrito">Carrito</Link></li></ul> </span>
+                  <span><b>${precio}</b></span>
+                  <span className="crt">  <ItemCount  initial={1} max={4} OnAdd={OnAdd}/> </span>
                 </div>
                 </div>
                 

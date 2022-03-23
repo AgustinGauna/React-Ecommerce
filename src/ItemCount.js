@@ -1,34 +1,45 @@
-import {useState} from 'react';
+import { React, useState } from 'react'
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-const ItemCount = ({item, initial, max, addItem}) => { 
+const ItemCount = ({initial, max, OnAdd}) => { 
  
     
  
-    const [qty, setQty] = useState(initial)
+    const [contador, setContador] = useState(initial);
+    const [renderizado, setRenderizado] = useState(true);
 
-    
+  
 
-        const sumar = () => {
-            if(qty >=initial && qty <max){
-            setQty(qty + 1)
-        }
+    const addProduct = () => {
+        if(contador < max)
+        setContador(contador + 1);
     }
-
-       
-
-        const restar = () => {
-            if(qty >initial && qty <=max){
-            setQty(qty - 1)
-        }
-        }
+    const removeProduct = () =>{
+        if(contador > 0)
+        setContador(contador - 1);
+    }
+    
+    const AddtoCart =()=>{
+        OnAdd(contador)
+        setRenderizado(false)
+        toast.success("Se ha añadido los productos al carrito")
+    }
 
     
     return (
         <div>
-            <p>Cantidad : {qty}</p>
-            <button className='btn2' onClick={restar}>-</button>
-            <button onClick={() => addItem({item, qty})}>Comprar</button>
-            <button className='btn2' onClick={sumar}>+</button>
+
+            <p>Cantidad : {contador}</p>
+            {renderizado ? 
+            <div>           
+                <button className='btn2' onClick={removeProduct}>-</button>
+                <button onClick={AddtoCart}>Añadir al carrito</button>
+                <button className='btn2' onClick={addProduct}>+</button>                
+            </div>
+            :
+            <ul className='nav__links' style={{backgroundColor:"blue"}}><li><Link to="/carrito">Carrito</Link></li></ul>}
+
         </div>
     );
 

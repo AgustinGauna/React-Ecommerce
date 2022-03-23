@@ -176,3 +176,7 @@ header {
     left: 2px;
     border-bottom: 1px solid rgb(177, 177, 177);
 }
+
+.itemsInCart {
+    display: inline-block;
+}

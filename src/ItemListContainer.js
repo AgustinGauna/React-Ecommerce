@@ -38,7 +38,7 @@ const ItemListContainer = () => {
             setTimeout(()=>{
                 
                 res(productosIniciales)
-            },2000)
+            },2)
         })
 
         

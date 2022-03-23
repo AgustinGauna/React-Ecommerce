@@ -5,18 +5,18 @@ import ItemDetailContainer from "./ItemDetailContainer";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from "react-router-dom";
-import CartContext from "./CartContext";
+import CartContextProvider from './CartContext';
 
 function App() {
   return (
 
-    <CartContext>
+    <CartContextProvider>
         <BrowserRouter>
             <NavBar />
             <Main />
             <ToastContainer/>
         </BrowserRouter>
-    </CartContext>
+    </CartContextProvider>
   );
 }
 
