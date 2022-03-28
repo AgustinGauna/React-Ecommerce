@@ -18,6 +18,7 @@ const isInCart = (id) => {
 
 
 const AddItem = (Item, Quantity) =>{
+    
     isInCart(Item.id)
     ?
     SetCartList(CartList.map((prod) =>{

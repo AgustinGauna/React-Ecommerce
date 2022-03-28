@@ -6,13 +6,13 @@ import {Contexto} from './CartContext'
 
 const ItemDetail = ({Item}) => {
 
-  const {img, name, id, precio, descripcion} = Item
+  const {imagen, nombre, id, precio, descripcion} = Item
 
 
   const {AddItem} = Contexto()
 
   const OnAdd =(Quantity)=>{
-    AddItem({Item: Item, Quantity: Quantity, nombre: name, id:id})
+    AddItem({Item: Item, Quantity: Quantity, nombre: nombre, id:id, precio: precio, imagen: imagen})
 }
 
   return (
@@ -22,7 +22,7 @@ const ItemDetail = ({Item}) => {
 
         <main className='todo'>
           <div className='container3'>
-            <div className="cover"><img src={img} /></div>
+            <div className="cover"><img src={imagen} /></div>
             <div className="content">
               <div className="nave">
                 <span className="logo">Coffe Store <CartWidget/> </span>
@@ -30,7 +30,7 @@ const ItemDetail = ({Item}) => {
               </div>
               <div className="content-body">
                 <div className="black-label">
-                  <span className="title"><b>{name}</b></span>
+                  <span className="title"><b>{nombre}</b></span>
                   <p>{descripcion}</p>
                   <div className="prix">
                   <span><b>${precio}</b></span>

@@ -15,10 +15,10 @@ function NavBar() {
             <nav>
                 <ul className='nav__links'>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/categoria/1">Dulces</Link></li>
-                    <li><Link to="/categoria/2">Negros</Link></li>
-                    <li><Link to="/categoria/3">Frutales</Link></li>
-                    <li><Link to="/carrito">Carrito  <CartWidget /> </Link></li>
+                    <li><Link to="/categoria/Dulces">Dulces</Link></li>
+                    <li><Link to="/categoria/negro">Negros</Link></li>
+                    <li><Link to="/categoria/frutales">Frutales</Link></li>
+                   <CartWidget /> 
                 </ul>
             </nav>
 
