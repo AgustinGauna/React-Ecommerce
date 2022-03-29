@@ -42,11 +42,16 @@ const Clear = () =>{
     SetCartList([])
 }
 
+const totalPrice = () => {
+    return CartList.reduce((total, item) => total + item.precio * item.Quantity, 0)
+}
+
     return (
         <CartContext.Provider value= {{
             CartList,
             AddItem,
             removeItem,
+            totalPrice,
             Clear}}>
             {children}
         </CartContext.Provider>

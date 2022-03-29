@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'  
 import ItemDetail from './ItemDetail';
 import { useParams } from "react-router";
-import {query, getDocs, getDoc, doc, collection, where} from "firebase/firestore"
+import {getDoc, doc} from "firebase/firestore"
 import { db } from './Firebase'
 import { toast } from 'react-toastify';
 
@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
 
         
     },[id])
-
+ 
 
 
     return (

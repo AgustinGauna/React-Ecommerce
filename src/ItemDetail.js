@@ -25,7 +25,7 @@ const ItemDetail = ({Item}) => {
             <div className="cover"><img src={imagen} /></div>
             <div className="content">
               <div className="nave">
-                <span className="logo">Coffe Store <CartWidget/> </span>
+                <span className="logo">Coffe Store <  CartWidget/> </span>
                 <span><div className="fab fa-sistrix" ></div></span>
               </div>
               <div className="content-body">

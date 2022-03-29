@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 const Cart = () => {
-    const{CartList , removeItem, Clear} = Contexto()
+    const{CartList , removeItem, Clear, totalPrice} = Contexto()
     const [loading, setLoading] = useState(true);
     
     setTimeout(() => {
@@ -38,7 +38,8 @@ const Cart = () => {
                                 </div>)}
                         </div>
                     </div>
-                    <button onClick={()=> Clear()}>Vaciar Carrito</button>                                    
+                    <button onClick={()=> Clear()}>Vaciar Carrito</button>        
+                    <div>total: {totalPrice()} </div>                            
                 </div>
               )}
             </div>
