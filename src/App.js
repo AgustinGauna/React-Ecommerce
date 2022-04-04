@@ -14,7 +14,7 @@ function App() {
         <BrowserRouter>
             <NavBar />
             <Main />
-            <ToastContainer/>
+            <ToastContainer theme="dark"/>
         </BrowserRouter>
     </CartContextProvider>
   );
