@@ -96,9 +96,9 @@ const Cart = () => {
                     </div>
                       <button onClick={()=> Clear()}>Vaciar Carrito</button>        
                       <form>
-                            <input type="text" name="email" placeholder="Email" onChange={getData}/>
-                            <input type="text" name="username" placeholder="Nombre" onChange={getData2} />
-                            <input type="text" name="telefono" placeholder="Telefono" onChange={getData3} />
+                            <input type="text" name="username" placeholder="Nombre" onChange={getData} />
+                            <input type="text" name="telefono" placeholder="Telefono" onChange={getData2} />
+                            <input type="text" name="email" placeholder="Email" onChange={getData3}/>
                       <button onClick={finalizarCompra}>Finalizar compra</button>    
                       </form>
                       
