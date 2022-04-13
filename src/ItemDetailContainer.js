@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import {getDoc, doc} from "firebase/firestore"
 import { db } from './Firebase'
 import { toast } from 'react-toastify';
-
+import BarLoader from "react-spinners/ClipLoader";
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
@@ -27,11 +27,18 @@ const ItemDetailContainer = () => {
 
 
     return (
-        <div>
-          <p>{loading ? "Cargando..." : ""}</p>
-          <ItemDetail Item= {Item} />
-        </div>
-      );
+      <>
+      <div>
+
+          {loading ? 
+          <div className="loader"><BarLoader loading={loading}  size={50} /></div>
+          : 
+          <ItemDetail Item= {Item} />}
+          
+          </div>
+          </>
+          
+  )
 }
 
 export default ItemDetailContainer

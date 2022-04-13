@@ -5,7 +5,7 @@ import {addDoc, collection, serverTimestamp, } from 'firebase/firestore'
 import { db } from './Firebase'
 import { toast } from 'react-toastify'
 import './Style.css' 
-
+import BarLoader from "react-spinners/ClipLoader";
 
 const Cart = () => {
 
@@ -13,59 +13,60 @@ const Cart = () => {
  
     const{CartList , removeItem, Clear, totalPrice} = Contexto()
     const [loading, setLoading] = useState(true);
-    const [data, setData]  = useState(null);
-    const [data2, setData2]  = useState(null);
-    const [data3, setData3]  = useState(null);
+    const [error, setError] = useState("");
+    const [data, setData]  = useState({
+      user: "",
+      email: "",
+      phone: "",
+    });
+  
 
-    function getData(val){
-      setData(val.target.value)
-  }
-  function getData2(val){
-    setData2(val.target.value)
-}
-  function getData3(val){
-  setData3(val.target.value)
-}
+    
 
     const finalizarCompra = () => {
-      const orden = {
-        buyer : {
-          nombre : data,
-          telefono : data2,
-          email : data3
-        },
-        items : CartList,
-        date : serverTimestamp(),
-        total: totalPrice()
+      if(data.email.includes("@") && data.user.includes(" ") && data.phone.length >= 5){
+        const orden = {
+          buyer : data ,
+          items : CartList,
+          date : serverTimestamp(),
+          total: totalPrice()
+        }
+        const ordenesCollection = collection(db, "ordenes")
+        const pedido = addDoc(ordenesCollection, orden)
+        Clear();
+  
+        pedido
+        .then(res =>{
+          toast.success(`¡Compra realizada con exito! el id de su pedido es: ${res.id}`, {
+            position: "top-center",
+            autoClose: false,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+        })
+      } else {
+        setError("Por favor ingrese datos validos")
       }
-      const ordenesCollection = collection(db, "ordenes")
-      const pedido = addDoc(ordenesCollection, orden)
-      Clear();
-
-      pedido
-      .then(res =>{
-        toast.success(`¡Compra realizada con exito! el id de su pedido es: ${res.id}`, {
-          position: "bottom-center",
-          autoClose: false,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          });
-      })
-      
-
     }
     
     setTimeout(() => {
         setLoading(false);
       }, 500);
 
+      const handleChange = (event) =>{
+        setData({
+          ...data,
+          [event.target.name]: event.target.value
+        })
+      }
+
       return (
         <div>
           {loading ? (
-            "loading..."
+            <div className="loader"><BarLoader loading={loading}  size={50} /></div>
           ) : (
             <div>
               <title>Carrito</title>
@@ -74,7 +75,7 @@ const Cart = () => {
                   <>
                   <div>
                       <h2>Tu carrito está vacio</h2>
-                      <li><Link to="/" >A comprar!</Link></li>
+                      <li><Link to="/" style={{background:'blue'}}>A comprar!</Link></li>
                   </div>
                   </>
               ) : (
@@ -93,14 +94,17 @@ const Cart = () => {
                     </div>
                     <div className="utilidades">
                       <div className="totalPrice">Precio total: ${totalPrice()} </div>                    
-                    </div>
                       <button onClick={()=> Clear()}>Vaciar Carrito</button>        
-                      <form>
-                            <input type="text" name="username" placeholder="Nombre" onChange={getData} />
-                            <input type="text" name="telefono" placeholder="Telefono" onChange={getData2} />
-                            <input type="text" name="email" placeholder="Email" onChange={getData3}/>
-                      <button onClick={finalizarCompra}>Finalizar compra</button>    
-                      </form>
+                    </div>
+                      
+                            <input type="text" name="user" placeholder="Nombre y apellido" onChange={handleChange} value={data.user} />
+                            <input type="number" name="phone" placeholder="Telefono" onChange={handleChange} value={data.phone} />
+                            <input type="email" name="email" placeholder="Email" onChange={handleChange} value={data.email} />
+                            <button onClick={finalizarCompra}>Finalizar compra</button>    
+                      
+                      <div>
+                        <h3 style={{color:"red"}}> {error} </h3>
+                      </div>
                       
                 </div>
               )}

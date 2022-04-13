@@ -201,3 +201,44 @@ header {
     color: white;
 }
 
+nav a.active {
+    color: red;
+}
+
+.footer{
+    padding: 20px 0;
+    background-color: gray;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+.footer .social{
+    text-align: center;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.footer .social a{
+    font-size: 24px;
+    color: inherit;
+    border: 1px solid white;
+    width: 40px;
+    height: 40px;
+    line-height: 47px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    opacity: 0.75;
+}
+
+.footer .social a:hover{
+    opacity: 0.9;
+}
+
+.loader{
+    display: flex;
+    justify-content: center;
+}

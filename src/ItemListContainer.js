@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import { db } from './Firebase'
 import ItemList from './ItemList'
 import {getDocs, query, collection, where} from "firebase/firestore";
-
+import BarLoader from "react-spinners/ClipLoader";
 
 
 const ItemListContainer = () => {
@@ -36,8 +36,14 @@ const ItemListContainer = () => {
 
     return (
         <>
-            <p>{loading ? "Cargando..." : ""}</p>
-            <ItemList productos={productos}/>
+        <div>
+
+            {loading ? 
+            <div className="loader"><BarLoader loading={loading}  size={50} /></div>
+             : 
+             <ItemList productos={productos}/>}
+            
+        </div>
         </>
     )
 
