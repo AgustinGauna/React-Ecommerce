@@ -5,7 +5,7 @@ import Carrito from './Carrito'
 import ItemDetailContainer from './ItemDetailContainer'
 
 
-const Main = (props) => {
+const Main = () => {
 
     
 
