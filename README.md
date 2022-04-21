@@ -1,4 +1,5 @@
 # Bienvenido a mi tienda online de café 
+Este es mi proyecto final para el curso de React de Coderhouse.
 
 Es una SPA desarrolada con React JS, para inicializarla en tu pc primero debes clonar el repositorio y luego utilizar el siguiente comando 
 

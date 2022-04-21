@@ -23,7 +23,8 @@ const ItemCount = ({initial, max, OnAdd}) => {
     const AddtoCart =()=>{
         OnAdd(contador)
         setRenderizado(false)
-        toast.success("Se ha añadido los productos al carrito",{
+        toast.success(`Se han añadido ${contador} productos al carrito`
+        ,{
             position: "top-left",
         })
     }

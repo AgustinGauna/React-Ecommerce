@@ -40,8 +40,13 @@ const Formulario = () => {
               progress: undefined,
               });
           })
-        } else {
-          setError("Por favor ingrese datos validos")
+        } else if (data.user.includes(" ") === false || data.user.length <= 4 || isNaN(data.user) === false){
+          setError("Por favor ingrese un nombre valido")
+        } else if (data.phone.length < 5 || isNaN(data.phone) === true){
+          setError("Por favor ingrese un numero de telefono valido")
+        }
+        else if(data.email.includes("@") === false || data.email.includes(".") === false){
+          setError("Por favor un email valido")
         }
       }
 
